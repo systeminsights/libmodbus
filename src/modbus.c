@@ -41,6 +41,12 @@ typedef enum {
     _STEP_DATA
 } _step_t;
 
+int modbus_get_errno() {
+  int result = errno;
+  errno = 0;
+  return result;
+}
+
 const char *modbus_strerror(int errnum) {
     switch (errnum) {
     case EMBXILFUN:
